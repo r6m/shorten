@@ -24,8 +24,7 @@ func (api *API) shortenHandler(w http.ResponseWriter, r *http.Request) any {
 		return badRequestError("can't parse body: %v", err)
 	}
 
-	_, err := url.Parse(in.URL)
-	if err != nil {
+	if _, err := url.Parse(in.URL); err != nil {
 		return badRequestError("invalid url: %v", err)
 	}
 
