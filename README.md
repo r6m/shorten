@@ -2,5 +2,5 @@
 
 Yet another simple url shortener
 
-# storage
+### storage
 currently only a simple memory store is implemented.
