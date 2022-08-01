@@ -12,4 +12,3 @@ COPY --from=builder /shorten/bin/shorten /bin/shorten
 EXPOSE 8080
 
 ENTRYPOINT ["/bin/shorten"]
-
