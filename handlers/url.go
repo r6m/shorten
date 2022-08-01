@@ -77,7 +77,7 @@ func (api *API) redirectHandler(w http.ResponseWriter, r *http.Request) any {
 	}
 	logrus.Printf("redirect: '%s', url: '%s'", url.Key, url.OriginalURL)
 
-	http.Redirect(w, r, url.OriginalURL, http.StatusTemporaryRedirect)
+	http.Redirect(w, r, url.OriginalURL, http.StatusMovedPermanently)
 	return nil
 }
 
