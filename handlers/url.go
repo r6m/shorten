@@ -3,6 +3,7 @@ package handlers
 import (
 	"errors"
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/go-chi/chi/v5"
@@ -21,6 +22,11 @@ func (api *API) shortenHandler(w http.ResponseWriter, r *http.Request) any {
 	in := new(shortenURLRequest)
 	if err := render.Decode(r, in); err != nil {
 		return badRequestError("can't parse body: %v", err)
+	}
+
+	_, err := url.Parse(in.URL)
+	if err != nil {
+		return badRequestError("invalid url: %v", err)
 	}
 
 	url := &models.URL{
